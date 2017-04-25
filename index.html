@@ -8,7 +8,7 @@
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <!-- modernizr enables HTML5 elements and feature detects -->
-<script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
+<!--<script type="text/javascript" src="js/modernizr-1.5.min.js"></script>-->
 <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
 <style type="text/css">
 <!--
@@ -47,8 +47,15 @@ Logo {
       <span class="icon"><i class="fa fa-search"></i></span>
       <input type="search" id="search" placeholder="Search..." Size="45"/>
       <input type="submit" name="searchButton" id="searchButton" value="Search">
-      
-      <?php
+  </div>
+</div>
+
+            <p>
+              
+            </p>
+          </div>
+        </form>
+        <?php
 if(isset($_POST['searchButton']))
 {
     $to      = 'josh.hurn@hotmail.com';
@@ -63,14 +70,6 @@ if(isset($_POST['searchButton']))
     echo 'Email Sent.';
 }
 ?>
-  </div>
-</div>
-
-            <p>
-              
-            </p>
-          </div>
-        </form>
         <div class="gallery"><span class="gallery"><span class="show"><img width="356" height="220" src="images/1.jpg" alt="photo_one" /></span></span></div>
 </div>
     </div>
@@ -85,11 +84,11 @@ if(isset($_POST['searchButton']))
     </footer>
   </div>
   <p>&nbsp;</p>
-  <!-- javascript at the bottom for fast page loading -->
+  <!-- javascript at the bottom for fast page loading 
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/jquery.easing-sooper.js"></script>
   <script type="text/javascript" src="js/jquery.sooperfish.js"></script>
-  <script type="text/javascript" src="js/image_fade.js"></script>
+  <script type="text/javascript" src="js/image_fade.js"></script>-->
   <!--<script type="text/javascript">
     $(document).ready(function() {
       $('ul.sf-menu').sooperfish();
