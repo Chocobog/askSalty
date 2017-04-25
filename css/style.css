@@ -1,4 +1,4 @@
-@font-face { 
+/*@font-face { 
   font-family: Droid Sans; 
     src: url('../fonts/DroidSans-webfont.eot'); 
     src: local("Droid Sans"), url('../fonts/DroidSans-webfont.woff'); 
@@ -8,7 +8,7 @@
   font-family: Jenna Sue; 
     src: url('../fonts/JennaSue-webfont.eot'); 
     src: local("Jenna Sue"), url('../fonts/JennaSue-webfont.ttf'); 
-} 
+} */
 
 html { 
   height: 100%;
