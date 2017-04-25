@@ -1,36 +1,19 @@
 <?php
-if(isset($_POST['searchButton']))
-{
-	echo 'Hit PHP code.';
-    require ‘PHPMailerAutoload.php’;
-
-$mail = new PHPMailer;
-
-$mail->SMTPDebug = 3;                         //  Enable verbose debug output
-
-$mail->isSMTP();                                        // Set mailer to use SMTP
-$mail->Host = ‘smtp.sendgrid.net’;             // Specify main/backup SMTP servers
-$mail->SMTPAuth = true;                           // Enable SMTP authentication
-$mail->Username = ‘azure_5f76b2102d0ccc9b7a36e71e47181067@azure.com’;    // SMTP username
-$mail->Password = ‘qweasdzxc2@’;    // SMTP password
-$mail->SMTPSecure = ‘tls’;                        // Enable TLS/SSL encryption
-$mail->Port = 587;                                      // TCP port to connect to
-
-$mail->From = ’email@contoso.com’;
-$mail->FromName = ‘From SendGrid website’;
-$mail->addAddress(‘josh.hurn@hotmail.com’, ‘Josh’);     // Add a recipient
-
-$mail->WordWrap = 50;                              // Set word wrap to 50 characters
-$mail->isHTML(true);                                  // Set email format to HTML
-
-$mail->Subject = ‘Here is the subject’;
-$mail->Body    = ‘This is the HTML message body <b>in bold!</b>’;
-
-if(!$mail->send()) {
-echo ‘Message could not be sent.’;
-echo ‘Mailer Error: ‘ . $mail->ErrorInfo;
-} else {
-echo ‘Message has been sent’;
-}
-}
+// using SendGrid's PHP Library
+// https://github.com/sendgrid/sendgrid-php
+// If you are using Composer (recommended)
+require 'vendor/autoload.php';
+// If you are not using Composer
+// require("path/to/sendgrid-php/sendgrid-php.php");
+$from = new SendGrid\Email("Ask Salty", "asksalty@gmail.com");
+$subject = "Sending with SendGrid is Fun";
+$to = new SendGrid\Email("Josh Hurn", "josh.hurn@hotmail.com");
+$content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
+$mail = new SendGrid\Mail($from, $subject, $to, $content);
+$apiKey = getenv('SENDGRID_API_KEY');
+$sg = new \SendGrid($apiKey);
+$response = $sg->client->mail()->send()->post($mail);
+echo $response->statusCode();
+echo $response->headers();
+echo $response->body();
 ?>
