@@ -160,7 +160,7 @@ header {
 }
   
 #logo h1, #logo h2 { 
-  font: normal 500% 'Jenna Sue', arial, sans-serif;
+  font: normal 400% 'Jenna Sue', arial, sans-serif;
   text-transform: none;
   margin: 0;
   padding: 0;
@@ -382,12 +382,14 @@ ul.images {
 } 
 
 ul.images li {
-  position:absolute;
-  margin:0;
-  padding:0;
-  left:0;
-  right:0;
-  list-style:none;
+	position:absolute;
+	margin:0;
+	padding:0;
+	left:2px;
+	right:0;
+	list-style:none;
+	top: 1px;
+	width: 400px;
 }
  
 ul.images li.show {
