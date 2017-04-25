@@ -47,6 +47,23 @@ Logo {
       <span class="icon"><i class="fa fa-search"></i></span>
       <input type="search" id="search" placeholder="Search..." Size="45"/>
       <input type="submit" name="searchButton" id="searchButton" value="Search">
+      <?php
+
+if(isset($_POST['searchButton']))
+{
+    $to      = 'josh.hurn@hotmail.com';
+    $subject = 'the subject';
+    $message = 'hello';
+    $headers = 'From: jhurn70@gmail.com' . "\r\n" .
+        'Reply-To: jhurn70@gmail.com' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+
+    mail($to, $subject, $message, $headers);
+
+    echo 'Email Sent.';
+}
+
+?>
   </div>
 </div>
 
