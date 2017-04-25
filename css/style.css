@@ -211,12 +211,15 @@ nav {
   height: 450px;
 }
 
-#content { 
-  text-align: left;
-  width: 440px;
-  margin: 0 0 0 0;
-  float: right;
-  padding: 0 20px 20px 20px;
+#content {
+	text-align: left;
+	width: 900px;
+	margin: 0;
+	float: right;
+	padding-top: 0;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
 }
   
 #content ul { 
@@ -373,23 +376,24 @@ table tr td {
 }
 
 ul.images {
-  width:450px;
-  height:450px;
-  overflow:hidden;
-  position:relative;
-  margin:0;
-  padding:0;
+	width:300px;
+	height:450px;
+	overflow:hidden;
+	position:relative;
+	margin:0;
+	padding:0;
 } 
 
 ul.images li {
 	position:absolute;
 	margin:0;
 	padding:0;
-	left:2px;
+	left:1px;
 	right:0;
 	list-style:none;
-	top: 1px;
-	width: 400px;
+	top: 453px;
+	width: 244px;
+	height: 174px;
 }
  
 ul.images li.show {
