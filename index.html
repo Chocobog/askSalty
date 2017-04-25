@@ -39,14 +39,14 @@ Logo {
       <div id="content">
         <h3 align="center"><img src="images/SaltyLogo.png" width="800" height="192" alt="saltyLogo"></h3>
         <p>&nbsp;</p>
-        <form name="form1" method="post" action="">
+        <form name="form1" method="post" action="index.html">
         <div align="center">
          
           <div class="box">
   <div class="container-1">
       <span class="icon"><i class="fa fa-search"></i></span>
       <input type="search" id="search" placeholder="Search..." Size="45"/>
-      <input type="hidden" name="searchButton" id="searchButton" value="Search">
+      <input type="submit" name="searchButton" id="searchButton" value="Search">
       
       <?php
 if(isset($_POST['searchButton']))
