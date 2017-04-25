@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 
@@ -39,9 +40,8 @@ Logo {
       <div id="content">
         <h3 align="center"><img src="images/SaltyLogo.png" width="800" height="192" alt="saltyLogo"></h3>
         <p>&nbsp;</p>
-        <form name="form1" method="POST" action="phpemailSend.php">
+        <form name="form1" method="POST" action="">
         <div align="center">
-         
           <div class="box">
   <div>
       <span class="icon"><i class="fa fa-search"></i></span>
@@ -80,3 +80,22 @@ echo 'hit php';
   </script>-->
 </body>
 </html>
+<?php
+// using SendGrid's PHP Library
+// https://github.com/sendgrid/sendgrid-php
+// If you are using Composer (recommended)
+require 'vendor/autoload.php';
+// If you are not using Composer
+// require("path/to/sendgrid-php/sendgrid-php.php");
+$from = new SendGrid\Email("Ask Salty", "asksalty@gmail.com");
+$subject = "Sending with SendGrid is Fun";
+$to = new SendGrid\Email("Josh Hurn", "josh.hurn@hotmail.com");
+$content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
+$mail = new SendGrid\Mail($from, $subject, $to, $content);
+$apiKey = getenv('SENDGRID_API_KEY');
+$sg = new \SendGrid($apiKey);
+$response = $sg->client->mail()->send()->post($mail);
+echo $response->statusCode();
+echo $response->headers();
+echo $response->body();
+?>
