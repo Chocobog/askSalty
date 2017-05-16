@@ -9,7 +9,7 @@ $mailer = Swift_Mailer::newInstance($transport);
 
 $message = Swift_Message::newInstance('Test Subject')
   ->setFrom(array('abc@example.com' => 'ABC'))
-  ->setTo(array('xyz@test.com'))
+  ->setTo(array('josh.hurn@hotmail.com'))
   ->setBody('This is a test mail.');
 
 $result = $mailer->send($message);
