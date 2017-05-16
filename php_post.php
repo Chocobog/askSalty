@@ -1,16 +1,30 @@
 <?php
-require_once 'swift/lib/swift_required.php';
+require_once "Mail.php";
 
-$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
-  ->setUsername('askSalty1@gmail.com')
-  ->setPassword('wersdf2@');
+$from = 'askSalty1@gmail.com';
+$to = 'josh.hurn@hotmail.com';
+$subject = 'Hi!';
+$body = "Hi,\n\nHow are you?";
 
-$mailer = Swift_Mailer::newInstance($transport);
+$headers = array(
+    'From' => $from,
+    'To' => $to,
+    'Subject' => $subject
+);
 
-$message = Swift_Message::newInstance('Test Subject')
-  ->setFrom(array('askSalty1@gmail.com' => 'Ask Salty'))
-  ->setTo(array('josh.hurn@hotmail.com'))
-  ->setBody('This is a test mail.');
+$smtp = Mail::factory('smtp', array(
+        'host' => 'ssl://smtp.gmail.com',
+        'port' => '465',
+        'auth' => true,
+        'username' => 'askSalty1@gmail.com',
+        'password' => 'wersdf2@'
+    ));
 
-$result = $mailer->send($message);
+$mail = $smtp->send($to, $headers, $body);
+
+if (PEAR::isError($mail)) {
+    echo('<p>' . $mail->getMessage() . '</p>');
+} else {
+    echo('<p>Message successfully sent!</p>');
+}
 ?>
