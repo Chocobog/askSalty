@@ -1,7 +1,16 @@
-<html>
-<body>
+<?php
+require_once 'swift/lib/swift_required.php';
 
-Your search key is: <?php echo $_POST["search"]; ?>
+$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
+  ->setUsername('askSalty1@gmail.com')
+  ->setPassword('wersdf2@');
 
-</body>
-</html>
+$mailer = Swift_Mailer::newInstance($transport);
+
+$message = Swift_Message::newInstance('Test Subject')
+  ->setFrom(array('abc@example.com' => 'ABC'))
+  ->setTo(array('xyz@test.com'))
+  ->setBody('This is a test mail.');
+
+$result = $mailer->send($message);
+?>
